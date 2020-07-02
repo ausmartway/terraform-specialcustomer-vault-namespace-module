@@ -60,7 +60,7 @@ resource "vault_token" "project-namespace-admin-token" {
 }
 
 resource vault_mount "default_pki" {
-  path = "${var.namespace}_pki"
+  path = "${var.namespace}/${var.namespace}_pki"
   type = "pki"
 }
 
