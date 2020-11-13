@@ -54,7 +54,7 @@ resource "vault_token" "project-namespace-admin-token" {
   policies = ["default",vault_policy.project-namespace-admin-policy.name]
   renewable = true
   no_parent=true
-  ttl = "96h"
+  ttl = "768h"
   renew_min_lease = 43200
   renew_increment = 86400
 }
