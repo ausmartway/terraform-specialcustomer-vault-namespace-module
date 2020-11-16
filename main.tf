@@ -8,6 +8,13 @@ resource "vault_policy" "project-namespace-admin-policy" {
   name="project-namespace-admin-policy"
   policy=<<EOP
 # Manage namespaces
+
+
+#adding below to allow creation of child token
+path "auth/token/create" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
 path "${vault_namespace.project-namespace.path}/sys/namespaces/*" {
    capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
